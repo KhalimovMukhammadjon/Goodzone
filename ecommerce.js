@@ -78,4 +78,4 @@ function GetProductByName(productName) {
 }
 
 
-module.exports = {CreateProduct, GetProductList, GetSingleProduct,UpdateProductName}
+module.exports = {CreateProduct, GetProductList, GetSingleProduct,UpdateProductName,DeleteProduct}
