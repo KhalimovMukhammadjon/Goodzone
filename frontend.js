@@ -1,4 +1,4 @@
-const { CreateProduct, GetProductList, GetSingleProduct } = require("./products")
+const { CreateProduct, GetProductList, GetSingleProduct, DeleteProduct, UpdateProduct } = require("./products")
 
 //
 // FRONTEND
@@ -12,6 +12,25 @@ console.log("yaratish uchun response", CreateProduct({
     description: "Buy This Macbook"
 }))
 
+console.log("yaratish uchun response", Up({
+    name: "Macbook Prod",
+    price: "1000$",
+    picture: "https://macbook.air/picture.jpg",
+    description: "Buy This Macbook"
+}))
+
 console.log("get single product ", GetSingleProduct("0000002"))
 
 console.log("produktlar royxati", GetProductList())
+
+
+console.log("produktlar royxati", GetProductList())
+console.log("Delete", DeleteProduct({
+    name: "Macbook Prod",
+    price: "1000$",
+    picture: "https://macbook.air/picture.jpg",
+    description: "Buy This Macbook"
+}))
+
+console.log(DeleteProduct)
+console.log(GetProductList)

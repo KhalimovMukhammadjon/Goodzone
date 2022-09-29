@@ -26,7 +26,7 @@ function CreateProduct(createBody) {
     return "CREATED"
 }
 
-function UpdateProductPrice(updateBody) {
+function UpdateProduct(updateBody) {
     // id: 0000010
     // narxi: "1000$",
     for (let i = 0; i < products.length; i++) {
@@ -57,10 +57,24 @@ function GetSingleProduct(productId) {
 }
 
 function DeleteProduct(productId) {
+    for (let n=0; n<products.length; n++){
+        let product = products[n]
+
+        if(product.id == "MacBook Pro 13"){
+            delete CreateProduct.name;
+        }
+    }
     // home task
 }
 
 function UpdateProductName(updateBody) {
+    for (let k=0; k<products.length; k++){
+        let product = products(k)
+
+        if(product.name=="iPhone 13 Pro"){
+            console.log("iPhone 14 Pro")
+        }
+    }
     // home task
 }
 
@@ -69,6 +83,6 @@ function GetProductByName(productName) {
 }
 
 
-module.exports = {CreateProduct, GetProductList, GetSingleProduct}
+module.exports = {CreateProduct, GetProductList, GetSingleProduct, UpdateProduct}
 
 
