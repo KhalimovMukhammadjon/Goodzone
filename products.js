@@ -1,137 +1,128 @@
-// Create Product
-// Update Product
-// Get Products List
-// Get Single Product
-// Delete Product
+// const prompt = require('prompt-sync')({sigint:true});
+
 
 let products = [
     {
-        id: '00030',
-        name: 'Macbook Pro',
-        price: '1100$',
-        picture: 'https://macbook.air/picture.jpg',
-        description: 'Buy This Macbook'
+    id: '0010',
+    name: 'Macbook Pro',
+    price: '1100$',
+    picture: 'https://macbook.air/picture.jpg',
+    description: 'Buy This Macbook'
     },
     {
-        id: '00040',
+        id: '0020',
         name: 'Macbook Air',
-        price: '1000$',
+        price: '1050$',
         picture: 'https://macbook.air/picture.jpg',
         description: 'Buy This Macbook'
     },
     {
-        id: '0009',
-        name: 'Iphone Pro',
-        price: '500$',
+        id: '0030',
+        name: 'Iphone 14 Pro',
+        price: '1500$',
         picture: 'https://macbook.air/picture.jpg',
         description: 'Buy This Macbook'
+    },
+    {
+        id: '0040',
+        name: 'Samsung S22',
+        price: '1040$',
+        picture: 'https://macbook.air/picture.jpg',
+        description: 'Buy This Phone'
     }
 ]
 
 
-function CreateProduct(createBodyList) {
-
-    for (createBody of createBodyList) {
+function CreateProduct(createBodyList){
+    for (createBody of createBodyList){
         products.push({
-            id: "000" + Math.floor(Math.random() * 50), // id ozimiz yaratamiz
+            id: createBody.id,
             name: createBody.name,
             price: createBody.price,
             picture: createBody.picture,
-            description: createBody.description
+            description: createBody.description,
         })
     }
-
-    // name: "Macbook Pro",
-    // narxi: "1000$",
-    // rasmi: "https://macbook_air/rasmi.jpg",
-    // description: "Buy Pro Book"
-
-
-    return "CREATED"
+    return "Created"
 }
 
-function UpdateProduct(updateBody) {
-    // id: 0000010
-    // narxi: "1000$",
-    for (let i = 0; i < products.length; i++) {
+
+
+function UpdateProduct(updateBody){
+    // name:Macbook 13 
+    for (let i=0; i<products.length; i++){
         let product = products[i]
-        if (updateBody.id == product.id) {
+        if(updateBody.id == productid){
             product.price = updateBody.price
-            return "UPDATED"
+            return "Updated"
         }
     }
-
-    return "NOT_FOUND"
+    return "Not Found"
 }
 
-function UpdateProductPrice(updateBody) {
-    // id: 0000010
-    // narxi: "1000$",
-    for (let i = 0; i < products.length; i++) {
-        let product = products[i]
-        if (updateBody.id == product.id) {
-            product.price = updateBody.price
-            return "UPDATED"
-        }
-    }
+// function UpdateProductPrice(updateBody) {
+//     // id: 0000010
+//     // narxi: "1000$",
+//     for (let i = 0; i < products.length; i++) {
+//         let product = products[i]
+//         if (updateBody.id == product.id) {
+//             product.price = updateBody.price
+//             return "UPDATED"
+//         }
+//     }
 
-    return "NOT_FOUND"
-}
+//     return "NOT_FOUND"
+// }
 
-function UpdateProductName(updateBody) {
-    // home task
-    for (let i = 0; i < products.length; i++) {
-        let product = products[i]
-        if (updateBody.id == product.id) {
-            product.name = updateBody.name
-            return "UPDATED"
-        }
-    }
-}
-
-function GetProductList() {
+function UpdateProductName(productId, name){
+    let productIndex = products.findIndex(item => item.id === productId)
+    products[productIndex].name = name;
     return products
 }
 
-function GetSingleProduct(productId) {
-    for (let m = 0; m < products.length; m++) {
-        let product = products[m]
 
-        if (product.id == productId) {
+function GetProductList(){
+    return products
+}
+
+function GetSingleProduct(productId){
+    for (let m=0; m<products.length; m++){
+        let product = products[m]
+        if(product.id == productId){
             return product
         }
     }
-
-    return "NOT_FOUND"
+    return "Not found"
 }
 
-function DeleteProduct(productId) {
-    for (let n = 0; n < products.length; n++) {
-        let product = products[n]
 
-        if (product.id == "MacBook Pro 13") {
-            delete CreateProduct.name;
+function DeleteProduct(productId,name){
+    let productIndex = products.findIndex(item => item.id === productId)
+    products[productIndex].name = name;
+    return products
+}
+
+
+function GetProductByName(productName,name){
+    for (let m=0; m<products.length; m++){
+        let product = products[m]
+        if(product.name == productName){
+            return product
         }
     }
-    // home task
+    return "Not found"
 }
 
-function UpdateProductName(updateBody) {
-    for (let k = 0; k < products.length; k++) {
-        let product = products(k)
-
-        if (product.name == "iPhone 13 Pro") {
-            console.log("iPhone 14 Pro")
+function UpdateProductPrice(id, price) {
+    for (let m=0; m<products.length; m++){
+        let product = products[m]
+        if(product.id == id){
+            console.log(product.id)
+            product.price = price
+            return
         }
     }
-    // home task
+    return "Not found"
 }
 
-function GetProductByName(productName) {
-    // home task
-}
-
-
-module.exports = { CreateProduct, GetProductList, GetSingleProduct, UpdateProduct }
-
-
+module.exports = {CreateProduct,UpdateProductPrice,UpdateProduct,GetSingleProduct,products,UpdateProductName,DeleteProduct,GetProductByName,GetProductList}
