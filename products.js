@@ -96,17 +96,41 @@ function GetSingleProduct(productId){
 }
 
 
-function DeleteProduct(productId,name){
-    let productIndex = products.findIndex(item => item.id === productId)
-    products[productIndex].name = name;
-    return products
+// function DeleteProduct(productId,name){
+//     let productIndex = products.findIndex(item => item.id === productId)
+//     products[productIndex].name = name;
+//     return products
+// }
+
+function DeleteProduct(productId){
+    let copyDeletedProduct = {}
+    for (let i=0; i<products.length;i++){
+        if(products[i].id==productId){
+            copyDeletedProduct = products[i]
+            products.slice(i,1)
+            return copyDeletedProduct
+        }
+    }
+
+    return "Not found"
 }
 
 
-function GetProductByName(productName,name){
+
+
+// function GetProductByName(productName,name){
+//     for (let m=0; m<products.length; m++){
+//         let product = products[m]
+//         if(product.name == productName){
+//             return product
+//         }
+//     }
+//     return "Not found"
+// }
+function GetProductByName(name){
     for (let m=0; m<products.length; m++){
         let product = products[m]
-        if(product.name == productName){
+        if(product.name == name){
             return product
         }
     }
