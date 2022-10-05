@@ -74,11 +74,42 @@ function UpdateProduct(updateBody){
 //     return "NOT_FOUND"
 // }
 
-function UpdateProductName(productId, name){
-    let productIndex = products.findIndex(item => item.id === productId)
-    products[productIndex].name = name;
-    return products
+// function UpdateProductName(productId, name){
+//     let productIndex = products.findIndex(item => item.id === productId)
+//     products[productIndex].name = name;
+//     return products
+// }
+
+
+
+function UpdateProductName(id, name) {
+    for (let m=0; m<products.length; m++){
+        let product = products[m]
+        if(product.id == id){
+            console.log(product.id)
+            product.name = name
+            return "Update"
+        }
+    }
+    return "Not found"
 }
+
+
+
+
+function UpdateProductPrice(id, price) {
+    for (let m=0; m<products.length; m++){
+        let product = products[m]
+        if(product.id == id){
+            console.log(product.id)
+            product.price = price
+            return
+        }
+    }
+    return "Not found"
+}
+
+
 
 
 function GetProductList(){
