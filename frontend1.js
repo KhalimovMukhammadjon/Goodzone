@@ -1,6 +1,27 @@
 const  {CreateCustomer,GetUserList,usersStorage,GetUserById,GetUserByName,GetUserByNumber,UpdateUserAdress,UpdateUserNumber,UpdateUser,DeleteUserById} = require("./customers.js")
 
 
+console.log("Customers",CreateCustomer([
+    {
+        id: "000123",
+        fullname: "John Doe",
+        age: 21,
+        phoneNumber: "998991234567",
+        cardNumber: 8600010120224050,
+        cardExpDate: "12/01",
+        address: "Tashkent Beshkayragach"
+    },
+    {
+        id: "000124",
+        fullname: "Usmonov Akbar",
+        age: 19,
+        phoneNumber: "998991234555",
+        cardNumber: 8600010120224063,
+        cardExpDate: "06/26",
+        address: "Tashkent Chorsu"
+    },
+]))
+
 
 console.log("Customers",GetUserList())
 
