@@ -44,7 +44,18 @@ let usersStorage = [
 ]
 
 function CreateCustomer(createUserBody) {
-    
+    for (createBody of createUserBody){
+        products.push({
+            id: createBody.id,
+            fullname: createBody.fullname,
+            age: createBody.age,
+            phoneNumber: createBody.phoneNumber,
+            cardNumber: createBody.cardNumber,
+            cardExpDate: createBody.cardExpDate,
+            address: createBody.address,
+        })
+    }
+    return "Created"    
 }
 
 
@@ -134,14 +145,16 @@ function UpdateUser(id,phoneNumber,age){
 
 
 function DeleteUserById(userId) {
-    for(i=0;i<usersStorage.length;i++){
+    for(let i=0;i<usersStorage.length;i++){
         let user = usersStorage[i]
-        if(user.id = userId){
+        if(user.id == userId){
             usersStorage.splice(i,1)
+            return "Deleted"
         }
     }
-    return "Deleted"
+    return "Not found"
+
 }
 
 
-module.exports = {GetUserList,usersStorage,GetUserById,GetUserByName,GetUserByNumber,UpdateUserAdress,UpdateUserNumber,UpdateUser,DeleteUserById}
+module.exports = {CreateCustomer,GetUserList,usersStorage,GetUserById,GetUserByName,GetUserByNumber,UpdateUserAdress,UpdateUserNumber,UpdateUser,DeleteUserById}
