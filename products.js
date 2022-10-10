@@ -3,11 +3,11 @@
 
 let products = [
     {
-    id: '0010',
-    name: 'Macbook Pro',
-    price: '1100$',
-    picture: 'https://macbook.air/picture.jpg',
-    description: 'Buy This Macbook'
+        id: '0010',
+        name: 'Macbook Pro',
+        price: '1100$',
+        picture: 'https://macbook.air/picture.jpg',
+        description: 'Buy This Macbook'
     },
     {
         id: '0020',
@@ -33,8 +33,8 @@ let products = [
 ]
 
 
-function CreateProduct(createBodyList){
-    for (createBody of createBodyList){
+function CreateProduct(createBodyList) {
+    for (createBody of createBodyList) {
         products.push({
             id: createBody.id,
             name: createBody.name,
@@ -48,11 +48,11 @@ function CreateProduct(createBodyList){
 
 
 
-function UpdateProduct(updateBody){
+function UpdateProduct(updateBody) {
     // name:Macbook 13 
-    for (let i=0; i<products.length; i++){
+    for (let i = 0; i < products.length; i++) {
         let product = products[i]
-        if(updateBody.id == productid){
+        if (updateBody.id == productid) {
             product.price = updateBody.price
             return "Updated"
         }
@@ -83,9 +83,9 @@ function UpdateProduct(updateBody){
 
 
 function UpdateProductName(id, name) {
-    for (let m=0; m<products.length; m++){
+    for (let m = 0; m < products.length; m++) {
         let product = products[m]
-        if(product.id == id){
+        if (product.id == id) {
             console.log(product.id)
             product.name = name
             return "Update"
@@ -98,9 +98,9 @@ function UpdateProductName(id, name) {
 
 
 function UpdateProductPrice(id, price) {
-    for (let m=0; m<products.length; m++){
+    for (let m = 0; m < products.length; m++) {
         let product = products[m]
-        if(product.id == id){
+        if (product.id == id) {
             console.log(product.id)
             product.price = price
             return
@@ -112,14 +112,14 @@ function UpdateProductPrice(id, price) {
 
 
 
-function GetProductList(){
+function GetProductList() {
     return products
 }
 
-function GetSingleProduct(productId){
-    for (let m=0; m<products.length; m++){
+function GetSingleProduct(productId) {
+    for (let m = 0; m < products.length; m++) {
         let product = products[m]
-        if(product.id == productId){
+        if (product.id == productId) {
             return product
         }
     }
@@ -133,12 +133,12 @@ function GetSingleProduct(productId){
 //     return products
 // }
 
-function DeleteProduct(productId){
+function DeleteProduct(productId) {
     let copyDeletedProduct = {}
-    for (let i=0; i<products.length;i++){
-        if(products[i].id==productId){
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].id == productId) {
             copyDeletedProduct = products[i]
-            products.slice(i,1)
+            products.slice(i, 1)
             return copyDeletedProduct
         }
     }
@@ -158,10 +158,10 @@ function DeleteProduct(productId){
 //     }
 //     return "Not found"
 // }
-function GetProductByName(name){
-    for (let m=0; m<products.length; m++){
+function GetProductByName(name) {
+    for (let m = 0; m < products.length; m++) {
         let product = products[m]
-        if(product.name == name){
+        if (product.name == name) {
             return product
         }
     }
@@ -169,9 +169,9 @@ function GetProductByName(name){
 }
 
 function UpdateProductPrice(id, price) {
-    for (let m=0; m<products.length; m++){
+    for (let m = 0; m < products.length; m++) {
         let product = products[m]
-        if(product.id == id){
+        if (product.id == id) {
             console.log(product.id)
             product.price = price
             return
@@ -180,4 +180,4 @@ function UpdateProductPrice(id, price) {
     return "Not found"
 }
 
-module.exports = {CreateProduct,UpdateProductPrice,UpdateProduct,GetSingleProduct,products,UpdateProductName,DeleteProduct,GetProductByName,GetProductList}
+module.exports = { CreateProduct, UpdateProductPrice, UpdateProduct, GetSingleProduct, products, UpdateProductName, DeleteProduct, GetProductByName, GetProductList }

@@ -35,7 +35,7 @@ let usersStorage = [
     {
         id: "000125",
         fullname: "H.Kane",
-        age: 24,
+        age: 19,
         phoneNumber: "998991234541",
         cardNumber: 8600010120224075,
         cardExpDate: "09/25",
@@ -45,7 +45,7 @@ let usersStorage = [
 
 function CreateCustomer(createUserBody) {
     for (createBody of createUserBody){
-        products.push({
+        usersStorage.push({
             id: createBody.id,
             fullname: createBody.fullname,
             age: createBody.age,
@@ -155,6 +155,7 @@ function DeleteUserById(userId) {
     return "Not found"
 
 }
+
 
 
 module.exports = {CreateCustomer,GetUserList,usersStorage,GetUserById,GetUserByName,GetUserByNumber,UpdateUserAdress,UpdateUserNumber,UpdateUser,DeleteUserById}
