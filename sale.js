@@ -194,7 +194,10 @@ function GetOrderList(){
     return response
 }
 
-
+// nimaga let customerr = GetOrderById(order.id)
+// qib ketgansiz?
+// GetOrderById() orderni qaytaradi customerni emas
+// xato bu
 function GetOrderList1(){
     let response = []
     for(let i=0; i<saleStorage.length; i++){
