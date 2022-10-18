@@ -52,12 +52,19 @@ function CreateOrder(createOrderBody) {
     return "Created"
 }
 
+
+var order = {}
+var customer = {}
+var productss = {}
+
+
+
+
 function GetOrderById(orderId) {
-    // console.log(products)
-    // console.log(usersStorage)
+
 
     // find order in saleStorage
-    let order = {}
+    // let order = {}
 
     for (let i=0;i<saleStorage.length;i++) {
         let sale = saleStorage[i]
@@ -67,7 +74,7 @@ function GetOrderById(orderId) {
     }
 
     // findCustomer in userStorage
-    let customer = {}
+    // let customer = {}
 
     for (let i=0; i<usersStorage.length; i++) {
         let user = usersStorage[i]
@@ -77,7 +84,7 @@ function GetOrderById(orderId) {
     }
 
     // findProduct in productsStorage
-    let productss = {}
+    // let productss = {}
 
     for(let i=0; i<products.length; i++){
         let product = products[i]
@@ -85,11 +92,9 @@ function GetOrderById(orderId) {
             productss = product
         }
     }
-    // 
-    // KODNI YOZING
-    // 
 
-    let response = {
+    let response = {}
+    response = {
         customer_info: {
             fullname: customer.fullname,
             cardNumber: customer.cardNumber,
@@ -111,76 +116,6 @@ function GetOrderById(orderId) {
 
 
 
-// GetOrderList
-
-// function GetOrderList(){
-//     // [
-//     //     {
-//     //         customer_info: {
-//     //             fullname: 'Usmonov Akbar',
-//     //             cardNumber: 8600010120224063,
-//     //             cardExpDate: '06/26',
-//     //             address: 'Tashkent Chorsu'
-//     //         },
-//     //         product_info: {
-//     //             name: 'Macbook Air',
-//     //             price: '1050$',
-//     //             picture: 'https://macbook.air/picture.jpg',
-//     //             description: 'Buy This Macbook'
-//     //         },
-//     //         quantity: 1,
-//     //         created_at: 2022 - 10 - 07T10: 31: 10.618Z
-//     //     },
-//     //     {
-//     //         customer_info: {
-//     //             fullname: 'Usmonov Akbar',
-//     //             cardNumber: 8600010120224063,
-//     //             cardExpDate: '06/26',
-//     //             address: 'Tashkent Chorsu'
-//     //         },
-//     //         product_info: {
-//     //             name: 'Macbook Air',
-//     //             price: '1050$',
-//     //             picture: 'https://macbook.air/picture.jpg',
-//     //             description: 'Buy This Macbook'
-//     //         },
-//     //         quantity: 1,
-//     //         created_at: 2022 - 10 - 07T10: 31: 10.618Z
-//     //     },
-//     //     {
-//     //         customer_info: {
-//     //             fullname: 'Usmonov Akbar',
-//     //             cardNumber: 8600010120224063,
-//     //             cardExpDate: '06/26',
-//     //             address: 'Tashkent Chorsu'
-//     //         },
-//     //         product_info: {
-//     //             name: 'Macbook Air',
-//     //             price: '1050$',
-//     //             picture: 'https://macbook.air/picture.jpg',
-//     //             description: 'Buy This Macbook'
-//     //         },
-//     //         quantity: 1,
-//     //         created_at: 2022 - 10 - 07T10: 31: 10.618Z
-//     //     }
-//     //      
-//     // ]
-
-
-// //     let response1 = {
-// //         customer_info:{
-// //             id: "000123",
-// //             fullname: "John Doe",
-// //             age: 21,
-// //             phoneNumber: "998991234567",
-// //             cardNumber: 8600010120224050,
-// //             cardExpDate: "12/01",
-// //             address: "Tashkent Beshkayragach"
-// //         },
-
-// //     }
-// //     return 
-//  }
 
 function GetOrderList(){
 
@@ -194,48 +129,8 @@ function GetOrderList(){
     return response
 }
 
-// nimaga let customerr = GetOrderById(order.id)
-// qib ketgansiz?
-// GetOrderById() orderni qaytaradi customerni emas
-// xato bu
-function GetOrderList1(){
-    let response = []
-    for(let i=0; i<saleStorage.length; i++){
-        let order = saleStorage[i]
-        let customerr = GetOrderById(order.id)
-        
-        response.push("Customer info",customerr.customer_info)
-        response.push("Product info",customerr.product_info)
-    }
-    return response
-}
-
-    // let response = []
-    // for (let i=0; i<saleStorage.length; i++) {
-    //     let order = saleStorage[i]
-    //     // let singleOrder = GetOrderById(order.id)
-
-    //     // order.customer_id -> customer_info
-    //     // order.product_id -> product_info
-
-    //     response.push(singleOrder)
-    // }
-
-
-
-    // let order = {}
-    // for(let i=0;i<saleStorage.length; i++){
-    //     let sale = saleStorage[i]
-    //     if(sale.id == orderList){
-    //         order = sale
-    //     }
-    // }
-
-
-
 
 // DeleteOrder
- 
 function DeleteOrder(orderId){
     for( let i=0; i<saleStorage.length; i++){
         let order = saleStorage[i]
@@ -246,5 +141,69 @@ function DeleteOrder(orderId){
     }
     return "Not found"
 }
+
+
+function GetOrderList1(){
+    let response = []
+
+
+
+    for (let i=0;i<saleStorage.length;i++) {
+        let sale = saleStorage[i]
+        if (sale.id == saleStorage){
+            order = sale
+        } 
+        response.push(order)
+    }
+    
+
+    for (let i=0; i<usersStorage.length; i++) {
+        let user = usersStorage[i]
+        if (user.id == order.customer_id) {
+            customer = user
+            response.push(customer)
+        }
+    }
+    
+    for(let i=0; i<products.length; i++){
+        let product = products[i]
+        if(product.id == order.product_id ){
+            productts = product
+            response.push(productss)
+        }
+    }
+
+    return response
+    
+    // let singleOrder = saleStorage(order.id)
+    // response.push(singleOrder)
+    // return response
+
+}
+
+ 
+
+
+
+// let response = {
+//     customer_info: {
+//         fullname: customer.fullname,
+//         cardNumber: customer.cardNumber,
+//         cardExpDate: customer.cardExpDate,
+//         address: customer.address,
+//     },
+//     product_info: {
+//         name: productss.name,
+//         price: productss.price,
+//         picture: productss.picture,
+//         description: productss.description,
+//     },
+//     quantity: order.quantity,
+//     created_at: order.created_at,
+// }
+
+
+
+
 
 module.exports = {GetOrderById,GetOrderList,saleStorage,GetOrderList1,DeleteOrder}
