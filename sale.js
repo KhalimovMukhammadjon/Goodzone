@@ -53,9 +53,9 @@ function CreateOrder(createOrderBody) {
 }
 
 
-var order = {}
-var customer = {}
-var productss = {}
+// var order = {}
+// var customer = {}
+// var productss = {}
 
 
 
@@ -64,7 +64,7 @@ function GetOrderById(orderId) {
 
 
     // find order in saleStorage
-    // let order = {}
+    let order = {}
 
     for (let i=0;i<saleStorage.length;i++) {
         let sale = saleStorage[i]
@@ -74,7 +74,7 @@ function GetOrderById(orderId) {
     }
 
     // findCustomer in userStorage
-    // let customer = {}
+    let customer = {}
 
     for (let i=0; i<usersStorage.length; i++) {
         let user = usersStorage[i]
@@ -84,7 +84,7 @@ function GetOrderById(orderId) {
     }
 
     // findProduct in productsStorage
-    // let productss = {}
+    let productss = {}
 
     for(let i=0; i<products.length; i++){
         let product = products[i]
@@ -94,6 +94,7 @@ function GetOrderById(orderId) {
     }
 
     let response = {}
+
     response = {
         customer_info: {
             fullname: customer.fullname,
@@ -143,43 +144,44 @@ function DeleteOrder(orderId){
 }
 
 
-function GetOrderList1(){
-    let response = []
+// function GetOrderList1(){
+
+//     let response = []
 
 
-
-    for (let i=0;i<saleStorage.length;i++) {
-        let sale = saleStorage[i]
-        if (sale.id == saleStorage){
-            order = sale
-        } 
-        response.push(order)
-    }
+//     for (let i=0;i<saleStorage.length;i++) {
+//         let sale = saleStorage[i]
+//         if (sale.id == saleStorage){
+//             order = sale
+//         } 
+//         response.push(order)
+//     }
     
 
-    for (let i=0; i<usersStorage.length; i++) {
-        let user = usersStorage[i]
-        if (user.id == order.customer_id) {
-            customer = user
-            response.push(customer)
-        }
-    }
+//     for (let i=0; i<usersStorage.length; i++) {
+//         let user = usersStorage[i]
+//         if (user.id == order.customer_id) {
+//             customer = user
+//             response.push(customer)
+//         }
+//     }
     
-    for(let i=0; i<products.length; i++){
-        let product = products[i]
-        if(product.id == order.product_id ){
-            productts = product
-            response.push(productss)
-        }
-    }
+//     for(let i=0; i<products.length; i++){
+//         let product = products[i]
+//         if(product.id == order.product_id ){
+//             productts = product
+//             response.push(productss)
+//         }
+//     }
 
-    return response
     
-    // let singleOrder = saleStorage(order.id)
-    // response.push(singleOrder)
-    // return response
+//     return response
+    
+//     // let singleOrder = saleStorage(order.id)
+//     // response.push(singleOrder)
+//     // return response
 
-}
+// }
 
  
 

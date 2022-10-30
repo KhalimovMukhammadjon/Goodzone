@@ -9,7 +9,7 @@ console.log("________________")
 // console.log("Deleted", DeleteOrder('1235'))
 
 console.log("________________")
-console.log("Orderlar ro`yxati", GetOrderList1())
+console.log("Orderlar ro`yxati 1", GetOrderList1())
 
 
 
