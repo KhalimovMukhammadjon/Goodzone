@@ -4,12 +4,19 @@ class CustomerObject {
 
     constructor() {
         // initialize new storage...
-        this.storage = [{id:'00026',name: "Akbar", age: 17},]
+        this.storage = []
     }
 
     // write methods for this class...
     createCustomer(createCustomerEntity) {
-        this.storage.push(createCustomerEntity)
+        // for (let i=0; i<createCustomerEntity.length; i++){
+        //     this.storage.push(createCustomerEntity[i])
+            
+        // }
+
+        // console.log("without spray ", createCustomerEntity)
+        // console.log("with spray ", ...createCustomerEntity)
+        this.storage.push(...createCustomerEntity)
     }
 
     getCustomerList() {
@@ -27,9 +34,13 @@ class CustomerObject {
     }
 
     getSingleByName(customerName){
+        console.log("storage",this.storage)
         for(let i=0; i<this.storage.length; i++){
+            console.log("for ni ichida")
             let customer = this.storage[i]
+            console.log(customer)
             if(customer.name === customerName){
+                console.log("if ni ichida")
                 return customer
             }
         }
