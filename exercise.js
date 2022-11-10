@@ -125,3 +125,103 @@ function exchangeRate(rate = 11134.23){
 // Som to Dollar: 1000000 / rate
 }
 exchangeRate()
+
+
+
+
+
+
+
+// new
+
+// exercise 1
+
+function games(age) {
+    // let age = int
+    
+    if(age<21){
+         console.log("Sorry, you are too young for the Cruel Games")
+    }
+    else if(age>21 && age<=35){
+         console.log("Let`s rock")
+    }
+
+    else{
+          console.log("You’re too old, grandpa")
+    }
+
+    return age
+}
+games(36)
+
+
+
+// Exercise 2
+
+// random number : 6
+// number :5
+
+function number(myNumber){
+
+    let number = Math.floor(Math.random()*10)
+    console.log(number)
+
+    if(number==myNumber){
+        console.log("You are right!!!")
+        return "Successfully"
+    }
+
+    else if(number<myNumber){
+        console.log("My number is more")
+    }
+
+    else if(number>myNumber){
+        console.log("My number is less")
+    }
+
+    else{
+        console.log("Error")
+    }
+
+
+}
+number(5)
+
+
+// Exercise 3
+
+// Yil raqami 4 ga bo’linsa va 100 ga bo’linmasa
+
+function leapYear(currentYear=1900){
+
+    let kabissa = currentYear/400
+    let result = kabissa%2
+
+    let a = currentYear%2
+    let b = currentYear/100
+
+    // let result = currentYear%2
+    // let kabissa = result/400
+
+    // let result = (currentYear/400)
+    // // 2000/400 = 5
+
+    if(result==0){
+        console.log("Bu kabissa yili")
+    }
+    else if(a==0 && b==0 ){
+        console.log("Bu kabissa yili 1")
+    }
+    else{
+        console.log("Kabissa yili emas")
+    }
+
+    console.log(currentYear)
+    console.log(result)
+    console.log(kabissa)
+    console.log(a)
+
+
+}
+
+leapYear()
