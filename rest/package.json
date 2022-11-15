@@ -1,0 +1,23 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "node_js api",
+  "main": "product_api.js",
+  "scripts": {
+    "start": "node product_api.js",
+    "dev": "nodemon product_api.js"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "rest"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}
